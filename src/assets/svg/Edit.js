@@ -28,7 +28,7 @@ const Edit = () => {
         </g>
         <defs>
           <clipPath id="clip0_97_288">
-            <rect width="16" height="16" fill="white" />
+            <rect width="20" height="20" fill="white" />
           </clipPath>
         </defs>
       </svg>

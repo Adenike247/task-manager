@@ -4,7 +4,6 @@
   padding-top: 50px;
   padding-left: 50px;
   padding-right: 50px;
-  /* position: absolute; */
   
 }
 .header {
@@ -20,8 +19,7 @@
   padding-bottom: 4em;
 }
 .navItemContainer {
-  display: grid;
-  place-items: center;
+ padding-left: 2em;
 }
 .navItemContainerRoot {
   display: flex;
@@ -32,4 +30,5 @@
   color: #ffffff;
   font-size: 24px;
   font-weight: 500;
+  white-space: nowrap;
 }

@@ -1,12 +1,19 @@
-.pageRoot{
-    background: #E46538;
-    border-radius: 10px;
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 39px;
+.pageRoot {
+  position: absolute;
 }
-.moreIconContainer{
-    display: flex;
-    align-self: center;
-    gap: 11px;
+.mainRoot {
+  background: #e46538;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 39px;
+}
+.moreIconContainer {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.textArea {
+  color: #ffffff;
+  font-size: 20px;
 }

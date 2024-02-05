@@ -1,13 +1,15 @@
 import React from 'react'
-import Edit from '../assets/svg/Edit'
-
-const MoreCard = () => {
+import classes from "../../styles/MoreCard.module.css"
+const MoreCard = ({ textArea, iconImg}) => {
   return (
     <>
       <div className={classes.pageRoot}>
-        <div className={classes.moreIconContainer}>
-          <Edit />
-          Edit
+        <div className={classes.mainRoot}>
+          <div className={classes.moreIconContainer}>
+            <span>{iconImg}</span>
+            <p className={classes.textArea}> {textArea}
+            </p>
+          </div>
         </div>
       </div>
     </>

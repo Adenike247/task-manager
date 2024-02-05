@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import More from '../assets/svg/More'
 import classes from "../../styles/TaskCard.module.css"
 import MoreCard from './MoreCard'
-const TaskCard = ({ description, dueDate, memberName }) => {
+import { pendingAction} from '../data'
+const PendingCard = ({ description, dueDate, memberName }) => {
     const [showCard, setShowCard] = useState(false);
+
     return (
         <>
             <div className={classes.taskCardContainer}>
@@ -17,7 +19,14 @@ const TaskCard = ({ description, dueDate, memberName }) => {
                     </div>
                 </div>
                 {showCard && (<div className={classes.moreCardContainer}>
-                    <MoreCard />
+                    {pendingAction.map((item) => (
+                        <>
+                            <MoreCard
+                                textArea={item.itemName}
+                                iconImg={item.sideIcon}
+                            />
+                        </>
+                    ))}
 
                 </div>)}
                 <p>
@@ -31,4 +40,4 @@ const TaskCard = ({ description, dueDate, memberName }) => {
     )
 }
 
-export default TaskCard
+export default PendingCard

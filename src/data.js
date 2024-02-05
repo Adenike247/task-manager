@@ -1,5 +1,11 @@
 import Dashboard from "./assets/svg/Dashboard";
-
+import Edit from "./assets/svg/Edit";
+import Delete from "./assets/svg/Delete";
+import Pending from "./assets/svg/Pending";
+import Folder from "./assets/svg/Folder";
+import Task from "./assets/svg/Task";
+import Team from "./assets/svg/Team";
+import Done from "./assets/svg/Done";
 export const taskContent = [
   {
     id: 1,
@@ -40,22 +46,73 @@ export const taskContent = [
 export const navItemContent = [
   {
     id: 1,
-    // navIcon: { Dashboard },
+    sideIcon: <Dashboard />,
     itemName: "Dashboard",
   },
   {
     id: 2,
-    // navIcon: { Dashboard },
+    sideIcon: <Folder />,
     itemName: "Project",
   },
   {
     id: 3,
-    // navIcon: { Dashboard },
+    sideIcon: <Task />,
     itemName: "Task",
   },
   {
     id: 4,
-    // navIcon: { Dashboard },
+    sideIcon: <Team />,
     itemName: "Team",
+  },
+];
+export const todoAction = [
+  {
+    id: 1,
+    sideIcon: <Edit />,
+    itemName: "Edit",
+  },
+  {
+    id: 2,
+    sideIcon: <Delete />,
+    itemName: "Delete",
+  },
+  {
+    id: 3,
+    sideIcon: <Pending />,
+    itemName: "Pending",
+  },
+];
+export const pendingAction = [
+  {
+    id: 1,
+    sideIcon: <Edit />,
+    itemName: "Edit",
+  },
+  {
+    id: 2,
+    sideIcon: <Delete />,
+    itemName: "Delete",
+  },
+  {
+    id: 3,
+    sideIcon: <Done />,
+    itemName: "Done",
+  },
+];
+export const doneAction = [
+  {
+    id: 1,
+    sideIcon: <Edit />,
+    itemName: "Edit",
+  },
+  {
+    id: 2,
+    sideIcon: <Delete />,
+    itemName: "Delete",
+  },
+  {
+    id: 3,
+    sideIcon: <Pending />,
+    itemName: "Pending",
   },
 ];

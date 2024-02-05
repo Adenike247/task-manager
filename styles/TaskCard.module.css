@@ -1,18 +1,23 @@
-.taskCard{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.taskCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.taskCardContainer{
-    background: #FFFFFF;
-    padding: 12px;
+.taskCardContainer {
+  background: #ffffff;
+  padding: 12px;
 }
-.userName{
-    font-size: 16px;
-    font-weight: 700;
+.userName {
+  font-size: 16px;
+  font-weight: 700;
 }
-.dueDate{
-    font-size: 14px;
-    color: #E46538;
-    font-weight: 500;
+.dueDate {
+  font-size: 14px;
+  color: #e46538;
+  font-weight: 500;
+}
+.moreCardContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
 }

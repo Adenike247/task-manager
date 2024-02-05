@@ -1,8 +1,8 @@
-import React from 'react'
-import classes from "../../styles/Sidebar.module.css"
-import Logo from '../assets/svg/Logo'
-import SideBarItem from './SideBarItem'
-import { navItemContent } from '../data'
+import React from "react";
+import classes from "../../styles/Sidebar.module.css";
+import Logo from "../assets/svg/Logo";
+import SideBarItem from "./SideBarItem";
+import { navItemContent } from "../data";
 const Sidebar = () => {
   return (
     <>
@@ -12,13 +12,13 @@ const Sidebar = () => {
           <h3 className={classes.header}>Task Manager</h3>
         </div>
         {navItemContent.map((item) => (
-          <><SideBarItem navIcon={item.navIcon}
-            itemName={item.itemName}
-          /></>
+          <>
+            <SideBarItem sideIcon={item.sideIcon} itemName={item.itemName} />
+          </>
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
