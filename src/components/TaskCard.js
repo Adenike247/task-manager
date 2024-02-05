@@ -8,6 +8,7 @@ const TaskCard = ({ description, dueDate, memberName }) => {
                 <div className={classes.taskCard}>
                     <h3 className={classes.userName}>{memberName}</h3>
                     <More />
+
                 </div>
                 <p>
                     {description}
@@ -15,7 +16,7 @@ const TaskCard = ({ description, dueDate, memberName }) => {
                 <div className={classes.dueDate}>
                     {dueDate}
                 </div>
-           </div>
+            </div>
         </>
     )
 }

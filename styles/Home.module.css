@@ -41,11 +41,52 @@
   min-width: 336px;
   padding: 10px 20px;
   background: #faf9f6;
+  height: 100vh;
 }
 .todoWrapper {
   display: flex;
   align-items: center;
   gap: 12px;
-  overflow-y: scroll; /* Add vertical scrollbar */
-  position: relative; /* Needed for sticky header */
+}
+.otherTask {
+  display: none;
+}
+.sideBarContainer{
+  display: none;
+}
+/* Media query for tablets and larger devices */
+@media only screen and (min-width: 768px) {
+  .whiteCard {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .header{
+    font-size: 32px;
+  }
+  .pendingCard {
+    background: #fff6eb;
+    min-width: 336px;
+    padding: 10px 20px;
+    height: 100vh;
+  }
+  .doneCard {
+    background: #fdf0ec;
+    min-width: 336px;
+    padding: 10px 20px;
+    height: 100vh;
+  }
+  .otherTask {
+    display: inline-flex;
+    gap: 32px;
+  }
+  .dashboardContainer {
+    display: flex;
+  }
+  .sideBarContainer{
+    display: inline;
+  }
+  .dropDownIcon{
+    display: none;
+  }
 }

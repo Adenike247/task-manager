@@ -1,1 +1,1 @@
-export const profileImage = require("./png/Ellipse 4.png");
+export const sideIcon = require("./svg/Dashboard");

@@ -1,5 +1,35 @@
-.pageRoot{
+.pageRoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchContainer {
+  display: none;
+}
+@media only screen and (min-width: 768px) {
+  .menuIcon {
+    display: none;
+  }
+  .rightContainer {
+    gap: 46px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+  }
+  .searchContainer {
+    display: inline-flex;
+    background: #ffffff;
+    padding-left: 26px;
+    padding-right: 106px;
+    padding-top: 20px;
+    padding-bottom: 16px;
+    gap: 16px;
+    border-radius: 50px;
+  }
+  .inputField {
+    border: none;
+    font-size: 24px;
+    font-weight: 500;
+    color: #d9d9d9;
+    outline: none;
+  }
 }
