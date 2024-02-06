@@ -11,11 +11,13 @@ const Sidebar = () => {
           <Logo />
           <h3 className={classes.header}>Task Manager</h3>
         </div>
-        {navItemContent.map((item) => (
-          <>
-            <SideBarItem sideIcon={item.sideIcon} itemName={item.itemName} />
-          </>
-        ))}
+        <div className={classes.sideBarContainer}>
+          {navItemContent.map((item) => (
+            <>
+              <SideBarItem sideIcon={item.sideIcon} itemName={item.itemName} />
+            </>
+          ))}
+        </div>
       </div>
     </>
   );

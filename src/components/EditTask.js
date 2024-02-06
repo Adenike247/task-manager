@@ -3,7 +3,7 @@ import Popup from './Popup'
 import classes from "../../styles/CreateTask.module.css"
 import InputField from './InputField'
 import Button from './Button'
-const CreateTask = ({ closeModal }) => {
+const EditTask = () => {
     return (
         <>
             <Popup closeModal={closeModal}>
@@ -31,7 +31,7 @@ const CreateTask = ({ closeModal }) => {
                 </div>
             </Popup>
         </>
-    )
+  )
 }
 
-export default CreateTask
+export default EditTask

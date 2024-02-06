@@ -3,7 +3,7 @@ import More from '../assets/svg/More'
 import classes from "../../styles/TaskCard.module.css"
 import MoreCard from './MoreCard'
 import { doneAction } from '../data'
-const DoneCard = ({ description, dueDate, memberName }) => {
+const DoneCard = ({ description, dateRaisedText, dueDateText, memberName, dueDateIcon, dueRaisedIcon }) => {
     const [showCard, setShowCard] = useState(false);
 
     return (
@@ -29,11 +29,18 @@ const DoneCard = ({ description, dueDate, memberName }) => {
                     ))}
 
                 </div>)}
-                <p>
+                <p className={classes.description}>
                     {description}
                 </p>
-                <div className={classes.dueDate}>
-                    {dueDate}
+                <div className={classes.dateContainer}>
+                    <div className={classes.dueDateWrap}>{dueRaisedIcon} <spa className={classes.dateRaisedText} n>Date Rised:</spa>
+                        <h3 className={classes.dateRaisedText}>
+                            {dateRaisedText}
+                        </h3></div>
+                    <div className={classes.dueDateWrap}>{dueDateIcon}<span className={classes.dueDate}>Due Date:</span>
+                        <h3 className={classes.dueDate}>
+                            {dueDateText}
+                        </h3></div>
                 </div>
             </div>
         </>

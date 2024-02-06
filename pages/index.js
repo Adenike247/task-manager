@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import classes from "../styles/Navbar.module.css"
+import styles from '../styles/Dashboard.module.css'
 import Dashboard from '../src/components/Dashboard'
 
 export default function Home() {

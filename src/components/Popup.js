@@ -1,6 +1,7 @@
 import React from 'react'
 import Cancel from '../assets/svg/Cancel'
 import styles from "../../styles/Popup.module.css"
+import Stroke from '../assets/svg/Stroke'
 const Popup = ({ closeModal, children }) => {
     return (
         <>
@@ -10,6 +11,7 @@ const Popup = ({ closeModal, children }) => {
                     <span className={styles.close} onClick={closeModal}>
                         <Cancel />
                     </span>
+                   
                     {children}
                 </div>
             </div>

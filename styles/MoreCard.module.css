@@ -1,19 +1,11 @@
-.pageRoot {
-  position: absolute;
-}
-.mainRoot {
-  background: #e46538;
-  border-radius: 10px;
-  padding-top: 5px;
-  padding-left: 20px;
-  padding-right: 39px;
-}
+
 .moreIconContainer {
   display: flex;
   align-items: center;
   gap: 11px;
+  height: 40px;
 }
 .textArea {
   color: #ffffff;
-  font-size: 20px;
+  font-size: 16px;
 }

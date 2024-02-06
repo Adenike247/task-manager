@@ -6,13 +6,25 @@
 .searchContainer {
   display: none;
 }
+.dashboardText {
+  display: none;
+}
+.rightContainer {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+}
+.navIconContainer {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
 @media only screen and (min-width: 768px) {
   .menuIcon {
     display: none;
   }
- 
-  .rightContainer {
-    gap: 46px;
+
+  .navContainer {
     display: flex;
     align-items: center;
   }
@@ -26,11 +38,17 @@
     gap: 16px;
     border-radius: 50px;
   }
+
   .inputField {
     border: none;
     font-size: 24px;
     font-weight: 500;
     color: #d9d9d9;
     outline: none;
+  }
+  .dashboardText {
+    display: inline;
+    font-size: 28px;
+    font-weight: 600;
   }
 }
