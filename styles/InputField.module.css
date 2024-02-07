@@ -10,7 +10,8 @@
   outline: none;
   border-radius: 5px;
   border: 1px solid #000000;
-  color: #ffffff;
+  color: #000;
+  background: #ffffff;
 }
 .inputField::placeholder {
   font-size: 0.84em;
