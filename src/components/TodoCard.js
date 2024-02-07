@@ -19,10 +19,11 @@ const TodoCard = ({
   const handleClick = (action) => {
     if (action === "Edit") {
     }
-      if (action === "Delete") {
-          const newTasks = tasks.filter((task) => task.id !== taskId)
-          setTasks(newTasks)
-        localStorage.setItem("items", JSON.stringify(newTasks));
+    if (action === "Delete") {
+      const newTasks = tasks.filter((task) => task.id !== taskId);
+      setTasks(newTasks);
+      localStorage.setItem("items", JSON.stringify(newTasks));
+      toast.success("Deleted Successfully");
     }
     if (action === "Move to Pending") {
       const newTasks = tasks.map((task) => {
@@ -34,8 +35,8 @@ const TodoCard = ({
         }
         return tasks;
       });
-        setTasks(newTasks);
-        localStorage.setItem("items",JSON.stringify(newTasks))
+      setTasks(newTasks);
+      localStorage.setItem("items", JSON.stringify(newTasks));
     }
     //  console.log(action,"bite")
   };

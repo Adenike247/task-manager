@@ -1,6 +1,11 @@
 .pageRoot {
   padding: 41px 21px;
 }
+/* .dashboardContainer {
+  padding-top: 50px;
+  padding-left: 53px;
+  padding-right: 73px;
+} */
 .header {
   font-size: 24px;
   font-weight: 500;
@@ -54,10 +59,10 @@
 .whiteCard {
   background: #ffffff;
   margin-top: 45px;
-  margin-left: 21px;
-  margin-right: 21px;
+  /* margin-left: 21px; */
+  /* margin-right: 21px; */
   margin-top: 2em;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   padding: 27px 22px;
 }
 .greyCard {
@@ -67,7 +72,6 @@
   overflow: scroll;
   position: relative;
   width: 100%;
-  min-width: 336px;
 }
 .pendingCard {
   background: #fff6eb;
@@ -75,7 +79,7 @@
   height: 678px;
   overflow: scroll;
   position: relative;
-  min-width: 336px;
+  width: 100%;
   display: none;
 }
 .doneCard {
@@ -85,7 +89,6 @@
   overflow: scroll;
   position: relative;
   width: 100%;
-  min-width: 336px;
   display: none;
 }
 .todoWrapper {
@@ -124,25 +127,36 @@
 }
 /* Media query for tablets and larger devices */
 @media only screen and (min-width: 768px) {
+  .pageRoot {
+    padding-top: 41px;
+    padding-bottom: 41px;
+    padding-left: 53px;
+    padding-right: 73px;
+  }
   .whiteCard {
     display: flex;
     align-items: center;
     gap: 32px;
+    /* margin-left: 21px; */
+    margin-right: 21px;
+    /* margin-left: 3em; */
+    width: 100%;
   }
   .header {
-    font-size: 32px;
+    /* font-size: 32px; */
     display: none;
   }
   .greyCard {
-    max-width: 420px;
+        min-width: 336px;
+
   }
   .pendingCard {
     display: inline;
-    max-width: 420px;
+    min-width: 366px;
   }
   .doneCard {
     display: inline;
-    max-width: 420px;
+    min-width: 366px;
   }
   .otherTask {
     display: inline-flex;
@@ -153,6 +167,8 @@
   }
   .sideBarContainer {
     display: inline;
+    position: relative;
+    margin-right: 10px;
   }
   .dropDownIcon {
     display: none;

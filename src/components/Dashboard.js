@@ -18,7 +18,7 @@ import { noTask } from "../assets/Images";
 const Dashboard = () => {
   const [showCard, setShowCard] = useState(false);
   const [tasks, setTasks] = useState([]);
-  const [emptyTodo, setShowEmpty] = useState(false);
+  // const [emptyTodo, setShowEmpty] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => {
     setIsOpen(true);
@@ -37,28 +37,27 @@ const Dashboard = () => {
         <div className={classes.sideBarContainer}>
           <Sidebar />
         </div>
-        <div>
-          <div className={classes.pageRoot}>
-            <Navbar />
-            <h3 className={classes.header}>Dashboard</h3>
-            <div className={classes.createTaskContainer}>
-              <div onClick={openModal} className={classes.createTaskBtn}>
-                <Plus />
-                <h3 className={classes.createTask}>New Task</h3>
-              </div>
+        {/* <div> */}
+        <div className={classes.pageRoot}>
+          <Navbar />
+          <h3 className={classes.header}>Dashboard</h3>
+          <div className={classes.createTaskContainer}>
+            <div onClick={openModal} className={classes.createTaskBtn}>
+              <Plus />
+              <h3 className={classes.createTask}>New Task</h3>
             </div>
-            {isOpen && (
-              <>
-                <div>
-                  <CreateTask
-                    tasks={tasks}
-                    setTasks={setTasks}
-                    closeModal={closeModal}
-                  />
-                </div>
-              </>
-            )}
           </div>
+          {isOpen && (
+            <>
+              <div>
+                <CreateTask
+                  tasks={tasks}
+                  setTasks={setTasks}
+                  closeModal={closeModal}
+                />
+              </div>
+            </>
+          )}
           <div className={classes.whiteCard}>
             <div className={classes.greyCard}>
               <div className={classes.todoWrapperContainer}>
@@ -144,7 +143,8 @@ const Dashboard = () => {
                     <></>
                   )
                 )}
-                {tasks.filter((task) => task.status === "pending").length ===0 && (
+                {tasks.filter((task) => task.status === "pending").length ===
+                  0 && (
                   <div className={classes.noTaskContainer}>
                     <Image src={noTask} alt="Empty" />
                     <h3 className={classes.noTaskText}>No Task Found!</h3>
@@ -190,25 +190,32 @@ const Dashboard = () => {
                     ))}
                   </div>
                 )}
-                {/* {taskContent.map((item) => (
-                  <>
+                {tasks.map((item) =>
+                  item.status === "done" ? (
                     <DoneCard
-                      description={item.decription}
+                      key={item.id}
+                      description={item.description}
                       dueDate={item.dueDate}
-                      memberName={item.mebemberName}
-                      dueRaisedIcon={item.dateRaisedIcon}
-                      dateRaisedText={item.dateRaisedText}
-                      dueDateIcon={item.dueDateIcon}
-                      dueDateText={item.dueDateText}
+                      memberName={item.fullName}
+                      dateRaisedText={item.dateRaised}
+                      dueDateText={item.dueDate}
+                      tasks={tasks}
+                      setTasks={setTasks}
+                      taskId={item.id}
                     />
-                  </>
-                ))} */}
-                <div className={classes.noTaskContainer}>
-                  <Image src={noTask} alt="Empty" />
-                  <h3 className={classes.noTaskText}>No Task Found!</h3>
-                </div>
+                  ) : (
+                    <></>
+                  )
+                )}
+                {tasks.filter((task) => task.status == "done").length === 0 && (
+                  <div className={classes.noTaskContainer}>
+                    <Image src={noTask} alt="Empty" />
+                    <h3 className={classes.noTaskText}>No Task Found!</h3>
+                  </div>
+                )}
               </div>
             </div>
+            {/* </div> */}
           </div>
         </div>
       </div>

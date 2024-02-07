@@ -31,9 +31,6 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
       status: "todo",
       dateRaised: `${new Date()}`,
     };
-    // const storage = localStorage.getItem("items") || null;
-    // console.log(storage, "hi");
-    // if (!tasks.length) {
     const newTask = [...tasks, newEntry];
     setTasks(newTask);
     localStorage.setItem("items", JSON.stringify(newTask));
@@ -41,8 +38,6 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
     setFormValues(initialState);
     closeModal();
     return;
-    //   }
-    //   const newTask=
   };
   console.log(formValues, "hello");
   return (
@@ -97,13 +92,7 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
             </div>
           </div>
           <div className={classes.btnContainer}>
-            <Button
-              //   isLoading={loading}
-              onClick={handleSubmit}
-              //   disabled={loading}
-            >
-              Add Task
-            </Button>
+            <Button onClick={handleSubmit}>Add Task</Button>
           </div>
         </div>
       </Popup>

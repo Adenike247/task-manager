@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
-import moment from 'moment'
-import More from '../assets/svg/More'
-import classes from "../../styles/TaskCard.module.css"
-import MoreCard from './MoreCard'
-import { pendingAction} from '../data'
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import moment from "moment";
+import More from "../assets/svg/More";
+import classes from "../../styles/TaskCard.module.css";
+import MoreCard from "./MoreCard";
+import { pendingAction } from "../data";
 const PendingCard = ({
   description,
   dateRaisedText,
@@ -11,9 +12,32 @@ const PendingCard = ({
   memberName,
   dueDateIcon,
   dueRaisedIcon,
+  tasks,
+  setTasks,
+  taskId,
 }) => {
   const [showCard, setShowCard] = useState(false);
-
+  const handleClick = (action) => {
+    if (action === "Delete") {
+      const newTasks = tasks.filter((task) => task.id !== taskId);
+      setTasks(newTasks);
+      localStorage.setItem("items", JSON.stringify(newTasks));
+    }
+    if (action === "Mark as done") {
+      const newTasks = tasks.map((task) => {
+        if (task.id === taskId) {
+          return {
+            ...task,
+            status: "done",
+          };
+        }
+        return tasks;
+      });
+      setTasks(newTasks);
+      localStorage.setItem("items", JSON.stringify(newTasks));
+      // toast.success("Successfully mark as Done");
+    }
+  };
   return (
     <>
       <div className={classes.taskCardContainer}>
@@ -32,7 +56,7 @@ const PendingCard = ({
             {pendingAction.map((item) => (
               <>
                 <MoreCard
-                //   handleClick={() => handleClick(item.itemName)}
+                  handleClick={() => handleClick(item.itemName)}
                   iconImg={item.sideIcon}
                   textArea={item.itemName}
                 />
@@ -46,7 +70,7 @@ const PendingCard = ({
             {dueRaisedIcon}
             <span className={classes.dateRaisedText}>Date Raised:</span>
             <h3 className={classes.dateRaisedText}>
-              {moment(dateRaisedText).format("MMM Do YYYY")}
+              {moment(dateRaisedText).format("YYYY-MM-DD")}
             </h3>
           </div>
           <div className={classes.dueDateWrap}>
@@ -60,4 +84,4 @@ const PendingCard = ({
   );
 };
 
-export default PendingCard
+export default PendingCard;

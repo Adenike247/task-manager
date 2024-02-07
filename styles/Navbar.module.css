@@ -9,11 +9,7 @@
 .dashboardText {
   display: none;
 }
-.rightContainer {
-  display: flex;
-  align-items: center;
-  gap: 46px;
-}
+
 .navIconContainer {
   display: flex;
   align-items: center;
@@ -23,13 +19,21 @@
   .menuIcon {
     display: none;
   }
-
+.rightContainer {
+  display: flex;
+  align-items: center;
+  gap: 46px;
+}
+.pageRoot{
+  display: inline;
+}
   .navContainer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
   .searchContainer {
-    display: inline-flex;
+    display: flex;
     background: #ffffff;
     padding-left: 26px;
     padding-right: 106px;
