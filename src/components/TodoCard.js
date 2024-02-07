@@ -42,7 +42,6 @@ const TodoCard = ({
       toast.success("Successfully move to Pending");
 
     }
-    //  console.log(action,"bite")
   };
   return (
     <>
