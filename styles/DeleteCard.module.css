@@ -1,0 +1,22 @@
+.pageRoot {
+  margin-top: 4em;
+}
+.header {
+  font-size: 1.5em;
+  color: #000000;
+  font-weight: 600;
+  text-align: center;
+}
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin: 3em 0em;
+}
+
+.yesBtn {
+  width: 20%;
+}
+.noBtn {
+  width: 20%;
+}

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import classes from "../../styles/Dashboard.module.css";
 import Plus from "../assets/svg/Plus";
-// import TaskCard from "./TaskCard";
 import TodoIcon from "../assets/svg/TodoIcon";
 import Dropdown from "../assets/svg/Dropdown";
 import { taskContent, todoCardAction } from "../data";
@@ -18,7 +17,8 @@ import Image from "next/image";
 import { noTask } from "../assets/Images";
 const Dashboard = () => {
   const [showCard, setShowCard] = useState(false);
-
+  const [tasks, setTasks] = useState([]);
+  const [emptyTodo, setShowEmpty] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const openModal = () => {
     setIsOpen(true);
@@ -26,6 +26,11 @@ const Dashboard = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("items")) || null;
+    if (!data) return;
+    setTasks(data);
+  }, []);
   return (
     <>
       <div className={classes.dashboardContainer}>
@@ -44,8 +49,12 @@ const Dashboard = () => {
             </div>
             {isOpen && (
               <>
-                <div >
-                  <CreateTask closeModal={closeModal} />
+                <div>
+                  <CreateTask
+                    tasks={tasks}
+                    setTasks={setTasks}
+                    closeModal={closeModal}
+                  />
                 </div>
               </>
             )}
@@ -57,41 +66,50 @@ const Dashboard = () => {
                   <TodoIcon />
                   <h3 className={classes.taskHeader}>Todo</h3>
                 </div>
-                <div onClick={() => {
-                  setShowCard(!showCard);
-                }} className={classes.dropDownIcon}>
+                <div
+                  onClick={() => {
+                    setShowCard(!showCard);
+                  }}
+                  className={classes.dropDownIcon}
+                >
                   <Dropdown />
                 </div>
-
               </div>
-              {showCard && (<div className={classes.moreCardContainer}>
-                {todoCardAction.map((item) => (
-                  <>
-                    <MoreCard
-                      iconImg={item.sideIcon}
-                      textArea={item.itemName}
-                    />
-                  </>
-                ))}
-
-              </div>)}
-              {/* {taskContent.map((item) => (
-                <>
+              {showCard && (
+                <div className={classes.moreCardContainer}>
+                  {todoCardAction.map((item) => (
+                    <>
+                      <MoreCard
+                        iconImg={item.sideIcon}
+                        textArea={item.itemName}
+                      />
+                    </>
+                  ))}
+                </div>
+              )}
+              {tasks.map((item) =>
+                item.status === "todo" ? (
                   <TodoCard
-                    description={item.decription}
+                    key={item.id}
+                    description={item.description}
                     dueDate={item.dueDate}
-                    memberName={item.mebemberName}
-                    dueRaisedIcon={item.dateRaisedIcon}
-                    dateRaisedText={item.dateRaisedText}
-                    dueDateIcon={item.dueDateIcon}
-                    dueDateText={item.dueDateText}
+                    memberName={item.fullName}
+                    dateRaisedText={item.dateRaised}
+                    dueDateText={item.dueDate}
+                    tasks={tasks}
+                    setTasks={setTasks}
+                    taskId={item.id}
                   />
-                </>
-              ))} */}
-              <div className={classes.noTaskContainer}>
-                <Image src={noTask} alt="Empty" />
-                <h3 className={classes.noTaskText}>No Task Found!</h3>
-              </div>
+                ) : (
+                  <></>
+                )
+              )}
+              {tasks.filter((task) => task.status === "todo").length === 0 && (
+                <div className={classes.noTaskContainer}>
+                  <Image src={noTask} alt="Empty" />
+                  <h3 className={classes.noTaskText}>No Task Found!</h3>
+                </div>
+              )}
             </div>
             <div className={classes.otherTask}>
               <div className={classes.pendingCard}>
@@ -100,29 +118,38 @@ const Dashboard = () => {
                     <Progress />
                     <h3 className={classes.taskHeader}>Pending</h3>
                   </div>
-                  <div onClick={() => {
-                    setShowCard(!showCard);
-                  }} className={classes.dropDownIcon}>
+                  <div
+                    onClick={() => {
+                      setShowCard(!showCard);
+                    }}
+                    className={classes.dropDownIcon}
+                  >
                     <Dropdown />
                   </div>
                 </div>
-                {/* {taskContent.map((item) => (
-                  <>
+                {tasks.map((item) =>
+                  item.status === "pending" ? (
                     <PendingCard
-                      description={item.decription}
+                      key={item.id}
+                      description={item.description}
                       dueDate={item.dueDate}
-                      memberName={item.mebemberName}
-                      dueRaisedIcon={item.dateRaisedIcon}
-                      dateRaisedText={item.dateRaisedText}
-                      dueDateIcon={item.dueDateIcon}
-                      dueDateText={item.dueDateText}
+                      memberName={item.fullName}
+                      dateRaisedText={item.dateRaised}
+                      dueDateText={item.dueDate}
+                      tasks={tasks}
+                      setTasks={setTasks}
+                      taskId={item.id}
                     />
-                  </>
-                ))} */}
-                <div className={classes.noTaskContainer}>
-                  <Image src={noTask} alt="Empty" />
-                  <h3 className={classes.noTaskText}>No Task Found!</h3>
-                </div>
+                  ) : (
+                    <></>
+                  )
+                )}
+                {tasks.filter((task) => task.status === "pending").length ===0 && (
+                  <div className={classes.noTaskContainer}>
+                    <Image src={noTask} alt="Empty" />
+                    <h3 className={classes.noTaskText}>No Task Found!</h3>
+                  </div>
+                )}
               </div>
               <div className={classes.doneCard}>
                 <div className={classes.doneWrapperContainer}>
@@ -130,34 +157,39 @@ const Dashboard = () => {
                     <Done />
                     <h3 className={classes.taskHeader}>Done</h3>
                   </div>
-                  <div onClick={() => {
-                    setShowCard(!showCard);
-                  }} className={classes.dropDownIcon}>
+                  <div
+                    onClick={() => {
+                      setShowCard(!showCard);
+                    }}
+                    className={classes.dropDownIcon}
+                  >
                     <Dropdown />
                   </div>
                 </div>
-                {showCard && (<div className={classes.moreCardContainer}>
-                  {todoCardAction.map((item) => (
-                    <>
-                      <MoreCard
-                        iconImg={item.sideIcon}
-                        textArea={item.itemName}
-                      />
-                    </>
-                  ))}
-
-                </div>)}
-                {showCard && (<div className={classes.moreCardContainer}>
-                  {todoCardAction.map((item) => (
-                    <>
-                      <MoreCard
-                        iconImg={item.sideIcon}
-                        textArea={item.itemName}
-                      />
-                    </>
-                  ))}
-
-                </div>)}
+                {showCard && (
+                  <div className={classes.moreCardContainer}>
+                    {todoCardAction.map((item) => (
+                      <>
+                        <MoreCard
+                          iconImg={item.sideIcon}
+                          textArea={item.itemName}
+                        />
+                      </>
+                    ))}
+                  </div>
+                )}
+                {showCard && (
+                  <div className={classes.moreCardContainer}>
+                    {todoCardAction.map((item) => (
+                      <>
+                        <MoreCard
+                          iconImg={item.sideIcon}
+                          textArea={item.itemName}
+                        />
+                      </>
+                    ))}
+                  </div>
+                )}
                 {/* {taskContent.map((item) => (
                   <>
                     <DoneCard

@@ -1,6 +1,7 @@
-// import { MDBSpinner } from "mdb-react-ui-kit";
-import classes from "../../styles/Button.module.css"
+import { MDBSpinner } from "mdb-react-ui-kit";
+import classes from "../../styles/Button.module.css";
 const Button = ({
+  children,
   textArea,
   className,
   type = "button",
@@ -17,17 +18,16 @@ const Button = ({
         className={`${classes.button} ${className}`}
         {...res}
       >
-        {/* {isLoading ? (
-          <MDBSpinner color='success' role='status'>
+        {isLoading ? (
+          <MDBSpinner color="success" role="status">
             <span className="visually-hidden">Loading...</span>
           </MDBSpinner>
         ) : (
           children
-        )} */}
-        {textArea}
+        )}
       </button>
     </>
   );
 };
 
-export default Button
+export default Button;

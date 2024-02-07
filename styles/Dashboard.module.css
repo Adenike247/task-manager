@@ -66,6 +66,7 @@
   height: 678px;
   overflow: scroll;
   position: relative;
+  width: 100%;
   min-width: 336px;
 }
 .pendingCard {
@@ -74,7 +75,7 @@
   height: 678px;
   overflow: scroll;
   position: relative;
-  min-width: 436px;
+  min-width: 336px;
   display: none;
 }
 .doneCard {
@@ -83,7 +84,8 @@
   height: 678px;
   overflow: scroll;
   position: relative;
-  min-width: 436px;
+  width: 100%;
+  min-width: 336px;
   display: none;
 }
 .todoWrapper {
@@ -132,15 +134,15 @@
     display: none;
   }
   .greyCard {
-    max-width: 400px;
+    max-width: 420px;
   }
   .pendingCard {
     display: inline;
-    max-width: 400px;
+    max-width: 420px;
   }
-   .doneCard {
+  .doneCard {
     display: inline;
-    max-width: 400px;
+    max-width: 420px;
   }
   .otherTask {
     display: inline-flex;
