@@ -8,10 +8,10 @@
   margin-top: 10px;
 }
 .textareaField {
-  font-size: 1.5em;
+  font-size: 1.05em;
   font-weight: 400;
   width: 100%;
-  height: 80px;
+  height: 100%;
   text-indent: 10px;
   box-sizing: border-box;
   -webkit-transition: 0.5s;
@@ -19,16 +19,20 @@
   outline: none;
   border-radius: 5px;
   border: 1px solid #000000;
-  color: #000000;
+  color: #000;
+  background: #ffffff;
 }
 .textareaFieldContainer {
   margin-bottom: 20px;
+  border: 1px solid #000000;
+  color: #000;
+  background: #ffffff;
 }
 .btnContainer {
   width: 40%;
   margin-left: auto;
   margin-top: 20px;
 }
-@media only screen and (min-width: 768px) {
-
+.inputContainer {
+  width: 100%;
 }

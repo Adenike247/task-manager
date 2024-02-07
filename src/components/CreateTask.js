@@ -57,14 +57,16 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
           </div>
           <div className={classes.inpuFieldWrap}>
             <h3 className={classes.inputText}>Due Date</h3>
-            <InputField
-              placeholder="Select Due Date"
-              onChange={handleChange}
-              type="date"
-              name="dueDate"
-              defaulValue={formValues.dueDate}
-              required
-            />
+            <div className={classes.inputContainer}>
+              <InputField
+                placeholder="Select Due Date"
+                onChange={handleChange}
+                type="date"
+                name="dueDate"
+                defaulValue={formValues.dueDate}
+                required
+              />
+           </div>
           </div>
           <div className={classes.inpuFieldWrap}>
             <h3 className={classes.inputText}>Title</h3>
