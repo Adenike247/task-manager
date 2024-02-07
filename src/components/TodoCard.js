@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import moment from "moment";
+import { toast } from "react-toastify";
 import More from "../assets/svg/More";
 import classes from "../../styles/TaskCard.module.css";
 import MoreCard from "./MoreCard";
 import { todoAction } from "../data";
 const TodoCard = ({
+  title,
   description,
   dateRaisedText,
   dueDateText,
@@ -37,6 +39,8 @@ const TodoCard = ({
       });
       setTasks(newTasks);
       localStorage.setItem("items", JSON.stringify(newTasks));
+      toast.success("Successfully move to Pending");
+
     }
     //  console.log(action,"bite")
   };
@@ -66,6 +70,7 @@ const TodoCard = ({
             ))}
           </div>
         )}
+        <h3 className={classes.title}>{title}</h3>
         <p className={classes.description}>{description}</p>
         <div className={classes.dateContainer}>
           <div className={classes.dueDateWrap}>

@@ -90,6 +90,7 @@ const Dashboard = () => {
                 item.status === "todo" ? (
                   <TodoCard
                     key={item.id}
+                    title={item.title}
                     description={item.description}
                     dueDate={item.dueDate}
                     memberName={item.fullName}
@@ -130,6 +131,7 @@ const Dashboard = () => {
                   item.status === "pending" ? (
                     <PendingCard
                       key={item.id}
+                      title={item.title}
                       description={item.description}
                       dueDate={item.dueDate}
                       memberName={item.fullName}
@@ -194,6 +196,7 @@ const Dashboard = () => {
                   item.status === "done" ? (
                     <DoneCard
                       key={item.id}
+                      title={item.title}
                       description={item.description}
                       dueDate={item.dueDate}
                       memberName={item.fullName}

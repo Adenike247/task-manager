@@ -6,6 +6,7 @@ import classes from "../../styles/TaskCard.module.css";
 import MoreCard from "./MoreCard";
 import { doneAction } from "../data";
 const DoneCard = ({
+  title,
   description,
   dateRaisedText,
   dueDateText,
@@ -22,6 +23,8 @@ const DoneCard = ({
       const newTasks = tasks.filter((task) => task.id !== taskId);
       setTasks(newTasks);
       localStorage.setItem("items", JSON.stringify(newTasks));
+            toast.success("Deleted Successfully");
+
     }
     if (action === "Move to Pending") {
       const newTasks = tasks.map((task) => {
@@ -64,6 +67,7 @@ const DoneCard = ({
             ))}
           </div>
         )}
+        <h3 className={classes.title}>{title}</h3>
         <p className={classes.description}>{description}</p>
         <div className={classes.dateContainer}>
           <div className={classes.dueDateWrap}>

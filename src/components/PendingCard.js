@@ -6,6 +6,7 @@ import classes from "../../styles/TaskCard.module.css";
 import MoreCard from "./MoreCard";
 import { pendingAction } from "../data";
 const PendingCard = ({
+  title,
   description,
   dateRaisedText,
   dueDateText,
@@ -22,6 +23,7 @@ const PendingCard = ({
       const newTasks = tasks.filter((task) => task.id !== taskId);
       setTasks(newTasks);
       localStorage.setItem("items", JSON.stringify(newTasks));
+      toast.success("Deleted Successfully");
     }
     if (action === "Mark as done") {
       const newTasks = tasks.map((task) => {
@@ -35,7 +37,7 @@ const PendingCard = ({
       });
       setTasks(newTasks);
       localStorage.setItem("items", JSON.stringify(newTasks));
-      // toast.success("Successfully mark as Done");
+      toast.success("Successfully mark as Done");
     }
   };
   return (
@@ -64,6 +66,7 @@ const PendingCard = ({
             ))}
           </div>
         )}
+        <h3 className={classes.title}>{title}</h3>
         <p className={classes.description}>{description}</p>
         <div className={classes.dateContainer}>
           <div className={classes.dueDateWrap}>
