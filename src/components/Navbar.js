@@ -3,8 +3,9 @@ import Menu from '../assets/svg/Menu'
 import Bell from '../assets/svg/Bell'
 import classes from "../../styles/Navbar.module.css"
 import Search from '../assets/svg/Search'
-import { profileImg } from '../assets/Images'
+// import { profileImg } from '../assets/Images'
 import Image from 'next/image'
+import profileImg from "../assets/png/profile.png"
 const Navbar = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const Navbar = () => {
             </div>
             <div className={classes.navIconContainer}><Bell />
               <Image src={profileImg} alt="profile-image" /></div>
+
           </div>
 
         </div>

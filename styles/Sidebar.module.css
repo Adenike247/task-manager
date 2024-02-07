@@ -4,7 +4,6 @@
   padding-top: 50px;
   padding-left: 50px;
   padding-right: 50px;
-  
 }
 .header {
   color: #ffffff;
@@ -18,11 +17,11 @@
   gap: 16px;
   padding-bottom: 4em;
 }
-.sideBarContainer{
+.sideBarContainer {
   margin-top: 3em;
 }
 .navItemContainer {
- padding-left: 2em;
+  padding-left: 2em;
 }
 .navItemContainerRoot {
   display: flex;
@@ -34,4 +33,18 @@
   font-size: 24px;
   font-weight: 500;
   white-space: nowrap;
+}
+.taskContainer {
+  background: #ffffff;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+}
+.taskName {
+  font-size: 24px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #000000;
 }

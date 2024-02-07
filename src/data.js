@@ -5,10 +5,8 @@ import Pending from "./assets/svg/Pending";
 import Folder from "./assets/svg/Folder";
 import Task from "./assets/svg/Task";
 import Team from "./assets/svg/Team";
-import Done from "./assets/svg/Done";
 import WhiteDone from "./assets/svg/WhiteDone";
 import DueDate from "./assets/svg/RaiseDate";
-import DateRaised from "./assets/svg/DueDate";
 import RaiseDate from "./assets/svg/RaiseDate";
 export const taskContent = [
   {
