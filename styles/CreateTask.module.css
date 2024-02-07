@@ -8,10 +8,10 @@
   margin-top: 10px;
 }
 .textareaField {
-  font-size: 1.05em;
+  font-size: 1.2em;
   font-weight: 400;
   width: 100%;
-  height: 100%;
+  height: 15vh;
   text-indent: 10px;
   box-sizing: border-box;
   -webkit-transition: 0.5s;
@@ -21,6 +21,7 @@
   border: 1px solid #000000;
   color: #000;
   background: #ffffff;
+  padding-top: 16px;
 }
 .textareaFieldContainer {
   margin-bottom: 20px;

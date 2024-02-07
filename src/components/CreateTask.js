@@ -83,7 +83,7 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
             <h3 className={classes.inputText}>Description</h3>
             <div className={classes.textareaFieldContainer}>
               <textarea
-                placeholder="Description..."
+                placeholder="Write a task..."
                 className={classes.textareaField}
                 onChange={handleChange}
                 type="text"

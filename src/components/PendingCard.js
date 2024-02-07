@@ -33,7 +33,7 @@ const PendingCard = ({
             status: "done",
           };
         }
-        return tasks;
+        return task;
       });
       setTasks(newTasks);
       localStorage.setItem("items", JSON.stringify(newTasks));

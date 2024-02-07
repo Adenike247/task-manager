@@ -12,7 +12,7 @@
   font-size: 18px;
   font-weight: 700;
 }
-.title{
+.title {
   font-size: 16px;
   font-weight: 600;
   white-space: nowrap;
@@ -46,7 +46,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* display: none; */
 }
 .dueDateWrap {
   display: flex;
@@ -56,5 +55,11 @@
 @media only screen and (min-width: 768px) {
   .dateContainer {
     display: flex;
+  }
+  .dueDate {
+    font-size: 14px;
+  }
+  .dateRaisedText {
+    font-size: 14px;
   }
 }

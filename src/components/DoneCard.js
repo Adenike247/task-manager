@@ -34,7 +34,7 @@ const DoneCard = ({
             status: "pending",
           };
         }
-        return tasks;
+        return task;
       });
       setTasks(newTasks);
       localStorage.setItem("items", JSON.stringify(newTasks));
