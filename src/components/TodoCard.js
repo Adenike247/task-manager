@@ -14,12 +14,18 @@ const TodoCard = ({
   dueDateIcon,
   dueRaisedIcon,
   tasks,
+  setEditTask,
   setTasks,
   taskId,
+  task,
+  setUpdatedTask,
 }) => {
   const [showCard, setShowCard] = useState(false);
   const handleClick = (action) => {
     if (action === "Edit") {
+      setEditTask(true);
+      setUpdatedTask(task);
+      setShowCard(false);
     }
     if (action === "Delete") {
       const newTasks = tasks.filter((task) => task.id !== taskId);
@@ -40,7 +46,6 @@ const TodoCard = ({
       setTasks(newTasks);
       localStorage.setItem("items", JSON.stringify(newTasks));
       toast.success("Successfully move to Pending");
-
     }
   };
   return (

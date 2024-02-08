@@ -12,19 +12,30 @@ import TodoCard from "./TodoCard";
 import PendingCard from "./PendingCard";
 import DoneCard from "./DoneCard";
 import CreateTask from "./CreateTask";
+import EditTask from "./EditTask";
 import MoreCard from "./MoreCard";
 import Image from "next/image";
 import { noTask } from "../assets/Images";
 const Dashboard = () => {
   const [showCard, setShowCard] = useState(false);
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState("Todo");
   // const [emptyTodo, setShowEmpty] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [editTask, setEditTask] = useState(false);
+  const [updatedTask, setUpdatedTask] = useState(null);
+  const handleFilter = (filter) => {
+    setFilter(filter);
+    setShowCard(false);
+  };
   const openModal = () => {
     setIsOpen(true);
   };
   const closeModal = () => {
     setIsOpen(false);
+  };
+  const closeEditModal = () => {
+    setEditTask(false);
   };
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("items")) || null;
@@ -37,7 +48,6 @@ const Dashboard = () => {
         <div className={classes.sideBarContainer}>
           <Sidebar />
         </div>
-        {/* <div> */}
         <div className={classes.pageRoot}>
           <Navbar />
           <h3 className={classes.header}>Dashboard</h3>
@@ -58,8 +68,22 @@ const Dashboard = () => {
               </div>
             </>
           )}
+          {editTask && (
+            <EditTask
+              closeModal={closeEditModal}
+              updatedTask={updatedTask}
+              tasks={tasks}
+              setTasks={setTasks}
+            />
+          )}
           <div className={classes.whiteCard}>
-            <div className={classes.greyCard}>
+            <div
+              className={
+                filter === "Todo"
+                  ? `${classes.greyCard} ${classes.todoFilter}`
+                  : classes.greyCard
+              }
+            >
               <div className={classes.todoWrapperContainer}>
                 <div className={classes.todoWrapper}>
                   <TodoIcon />
@@ -79,6 +103,7 @@ const Dashboard = () => {
                   {todoCardAction.map((item) => (
                     <>
                       <MoreCard
+                        handleClick={() => handleFilter(item.itemName)}
                         iconImg={item.sideIcon}
                         textArea={item.itemName}
                       />
@@ -98,7 +123,10 @@ const Dashboard = () => {
                     dueDateText={item.dueDate}
                     tasks={tasks}
                     setTasks={setTasks}
+                    setEditTask={setEditTask}
                     taskId={item.id}
+                    task={item}
+                    setUpdatedTask={setUpdatedTask}
                   />
                 ) : (
                   <></>
@@ -111,112 +139,126 @@ const Dashboard = () => {
                 </div>
               )}
             </div>
-            <div className={classes.otherTask}>
-              <div className={classes.pendingCard}>
-                <div className={classes.pendWrapperContainer}>
-                  <div className={classes.todoWrapper}>
-                    <Progress />
-                    <h3 className={classes.taskHeader}>Pending</h3>
-                  </div>
-                  <div
-                    onClick={() => {
-                      setShowCard(!showCard);
-                    }}
-                    className={classes.dropDownIcon}
-                  >
-                    <Dropdown />
-                  </div>
+            {/* <div className={classes.otherTask}> */}
+            <div
+              className={
+                filter === "Pending"
+                  ? `${classes.pendingCard} ${classes.pendingFilter}`
+                  : classes.pendingCard
+              }
+            >
+              <div className={classes.pendWrapperContainer}>
+                <div className={classes.todoWrapper}>
+                  <Progress />
+                  <h3 className={classes.taskHeader}>Pending</h3>
                 </div>
-                {tasks.map((item) =>
-                  item.status === "pending" ? (
-                    <PendingCard
-                      key={item.id}
-                      title={item.title}
-                      description={item.description}
-                      dueDate={item.dueDate}
-                      memberName={item.fullName}
-                      dateRaisedText={item.dateRaised}
-                      dueDateText={item.dueDate}
-                      tasks={tasks}
-                      setTasks={setTasks}
-                      taskId={item.id}
-                    />
-                  ) : (
-                    <></>
-                  )
-                )}
-                {tasks.filter((task) => task.status === "pending").length ===
-                  0 && (
-                  <div className={classes.noTaskContainer}>
-                    <Image src={noTask} alt="Empty" />
-                    <h3 className={classes.noTaskText}>No Task Found!</h3>
-                  </div>
-                )}
-              </div>
-              <div className={classes.doneCard}>
-                <div className={classes.doneWrapperContainer}>
-                  <div className={classes.todoWrapper}>
-                    <Done />
-                    <h3 className={classes.taskHeader}>Done</h3>
-                  </div>
-                  <div
-                    onClick={() => {
-                      setShowCard(!showCard);
-                    }}
-                    className={classes.dropDownIcon}
-                  >
-                    <Dropdown />
-                  </div>
+                <div
+                  onClick={() => {
+                    setShowCard(!showCard);
+                  }}
+                  className={classes.dropDownIcon}
+                >
+                  <Dropdown />
                 </div>
-                {showCard && (
-                  <div className={classes.moreCardContainer}>
-                    {todoCardAction.map((item) => (
-                      <>
-                        <MoreCard
-                          iconImg={item.sideIcon}
-                          textArea={item.itemName}
-                        />
-                      </>
-                    ))}
-                  </div>
-                )}
-                {showCard && (
-                  <div className={classes.moreCardContainer}>
-                    {todoCardAction.map((item) => (
-                      <>
-                        <MoreCard
-                          iconImg={item.sideIcon}
-                          textArea={item.itemName}
-                        />
-                      </>
-                    ))}
-                  </div>
-                )}
-                {tasks.map((item) =>
-                  item.status === "done" ? (
-                    <DoneCard
-                      key={item.id}
-                      title={item.title}
-                      description={item.description}
-                      dueDate={item.dueDate}
-                      memberName={item.fullName}
-                      dateRaisedText={item.dateRaised}
-                      dueDateText={item.dueDate}
-                      tasks={tasks}
-                      setTasks={setTasks}
-                      taskId={item.id}
-                    />
-                  ) : (
-                    <></>
-                  )
-                )}
-                {tasks.filter((task) => task.status == "done").length === 0 && (
-                  <div className={classes.noTaskContainer}>
-                    <Image src={noTask} alt="Empty" />
-                    <h3 className={classes.noTaskText}>No Task Found!</h3>
-                  </div>
-                )}
               </div>
+              {showCard && (
+                <div className={classes.moreCardContainer}>
+                  {todoCardAction.map((item) => (
+                    <>
+                      <MoreCard
+                        handleClick={() => handleFilter(item.itemName)}
+                        iconImg={item.sideIcon}
+                        textArea={item.itemName}
+                      />
+                    </>
+                  ))}
+                </div>
+              )}
+              {tasks.map((item) =>
+                item.status === "pending" ? (
+                  <PendingCard
+                    key={item.id}
+                    title={item.title}
+                    description={item.description}
+                    dueDate={item.dueDate}
+                    memberName={item.fullName}
+                    dateRaisedText={item.dateRaised}
+                    dueDateText={item.dueDate}
+                    tasks={tasks}
+                    setTasks={setTasks}
+                    taskId={item.id}
+                  />
+                ) : (
+                  <></>
+                )
+              )}
+              {tasks.filter((task) => task.status === "pending").length ===
+                0 && (
+                <div className={classes.noTaskContainer}>
+                  <Image src={noTask} alt="Empty" />
+                  <h3 className={classes.noTaskText}>No Task Found!</h3>
+                </div>
+              )}
+            </div>
+            <div
+              className={
+                filter === "Done"
+                  ? `${classes.doneCard} ${classes.doneFilter}`
+                  : classes.doneCard
+              }
+            >
+              <div className={classes.doneWrapperContainer}>
+                <div className={classes.todoWrapper}>
+                  <Done />
+                  <h3 className={classes.taskHeader}>Done</h3>
+                </div>
+                <div
+                  onClick={() => {
+                    setShowCard(!showCard);
+                  }}
+                  className={classes.dropDownIcon}
+                >
+                  <Dropdown />
+                </div>
+              </div>
+              {showCard && (
+                <div className={classes.moreCardContainer}>
+                  {todoCardAction.map((item) => (
+                    <>
+                      <MoreCard
+                        handleClick={() => handleFilter(item.itemName)}
+                        iconImg={item.sideIcon}
+                        textArea={item.itemName}
+                      />
+                    </>
+                  ))}
+                </div>
+              )}
+
+              {tasks.map((item) =>
+                item.status === "done" ? (
+                  <DoneCard
+                    key={item.id}
+                    title={item.title}
+                    description={item.description}
+                    dueDate={item.dueDate}
+                    memberName={item.fullName}
+                    dateRaisedText={item.dateRaised}
+                    dueDateText={item.dueDate}
+                    tasks={tasks}
+                    setTasks={setTasks}
+                    taskId={item.id}
+                  />
+                ) : (
+                  <></>
+                )
+              )}
+              {tasks.filter((task) => task.status == "done").length === 0 && (
+                <div className={classes.noTaskContainer}>
+                  <Image src={noTask} alt="Empty" />
+                  <h3 className={classes.noTaskText}>No Task Found!</h3>
+                </div>
+              )}
             </div>
             {/* </div> */}
           </div>
