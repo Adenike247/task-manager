@@ -65,6 +65,7 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
                 name="dueDate"
                 defaulValue={formValues.dueDate}
                 required
+                className={classes.inputFieldDue}
               />
            </div>
           </div>
