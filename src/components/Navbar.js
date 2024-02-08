@@ -12,7 +12,7 @@ const Navbar = () => {
         <span className={classes.menuIcon}> <Menu /></span>
 
         <div className={classes.navContainer}>
-          <d className={classes.dashboardText}>Dashboard</d>
+          <d className={classes.dashboardText}>My Task Board</d>
           <div className={classes.rightContainer}>
             <div className={classes.searchContainer}>
               <Search />

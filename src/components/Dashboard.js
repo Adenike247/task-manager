@@ -4,7 +4,7 @@ import classes from "../../styles/Dashboard.module.css";
 import Plus from "../assets/svg/Plus";
 import TodoIcon from "../assets/svg/TodoIcon";
 import Dropdown from "../assets/svg/Dropdown";
-import { taskContent, todoCardAction } from "../data";
+import { todoCardAction } from "../data";
 import Sidebar from "./Sidebar";
 import Done from "../assets/svg/Done";
 import Progress from "../assets/svg/Progress";
@@ -20,7 +20,6 @@ const Dashboard = () => {
   const [showCard, setShowCard] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState("Todo");
-  // const [emptyTodo, setShowEmpty] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [editTask, setEditTask] = useState(false);
   const [updatedTask, setUpdatedTask] = useState(null);
@@ -50,7 +49,7 @@ const Dashboard = () => {
         </div>
         <div className={classes.pageRoot}>
           <Navbar />
-          <h3 className={classes.header}>Dashboard</h3>
+          <h3 className={classes.header}>My Task Board</h3>
           <div className={classes.createTaskContainer}>
             <div onClick={openModal} className={classes.createTaskBtn}>
               <Plus />
@@ -139,7 +138,6 @@ const Dashboard = () => {
                 </div>
               )}
             </div>
-            {/* <div className={classes.otherTask}> */}
             <div
               className={
                 filter === "Pending"
@@ -260,7 +258,6 @@ const Dashboard = () => {
                 </div>
               )}
             </div>
-            {/* </div> */}
           </div>
         </div>
       </div>
