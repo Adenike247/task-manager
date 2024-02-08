@@ -1,7 +1,6 @@
 import React from 'react'
 import Cancel from '../assets/svg/Cancel'
 import styles from "../../styles/Popup.module.css"
-import Stroke from '../assets/svg/Stroke'
 const Popup = ({ closeModal, children }) => {
     return (
         <>

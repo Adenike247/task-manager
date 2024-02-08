@@ -1,5 +1,4 @@
 import React from "react";
-// import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import classes from "../../styles/InputField.module.css";
 const InputField = ({
   className,
