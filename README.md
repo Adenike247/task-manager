@@ -32,3 +32,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Design Choice
+I choosed different color codes (#000000,#FFDEAD,#BF760A,#FFFFFF,#FAF9F6,#FFF6EB,#BF760A,E46538) some svg icons and png to work on this assessment.
+
+Task manager allow user to create a task edit and delete a task and also move each of the task to pending and also mark as done when the user finish the task
+I worked with diffrent icons to implement this project funtionalities.

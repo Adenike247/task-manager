@@ -42,24 +42,23 @@
   z-index: 80;
   right: 30px;
 }
-.dateContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .dueDateWrap {
   display: flex;
   align-items: center;
   gap: 2px;
 }
 @media only screen and (min-width: 768px) {
-  .dateContainer {
-    display: flex;
-  }
+  
   .dueDate {
     font-size: 14px;
   }
   .dateRaisedText {
     font-size: 14px;
   }
+  .dateContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 }

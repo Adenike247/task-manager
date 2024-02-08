@@ -19,14 +19,14 @@
   .menuIcon {
     display: none;
   }
-.rightContainer {
-  display: flex;
-  align-items: center;
-  gap: 46px;
-}
-.pageRoot{
-  display: inline;
-}
+  .rightContainer {
+    display: flex;
+    align-items: center;
+    gap: 46px;
+  }
+  .pageRoot {
+    display: inline;
+  }
   .navContainer {
     display: flex;
     align-items: center;
@@ -52,7 +52,7 @@
   }
   .dashboardText {
     display: inline;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
   }
 }
