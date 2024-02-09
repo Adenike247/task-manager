@@ -87,9 +87,7 @@ const EditTask = ({ closeModal, updatedTask, tasks, setTasks }) => {
           </div>
           <div className={classes.btnContainer}>
             <Button
-              //   isLoading={loading}
               onClick={handleSubmit}
-              //   disabled={loading}
             >
               Save
             </Button>
