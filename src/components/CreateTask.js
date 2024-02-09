@@ -12,12 +12,12 @@ const initialState = {
   description: "",
 };
 const CreateTask = ({ closeModal, tasks, setTasks }) => {
-  const [formValues, setFormValues] = useState(initialState);
+  const [formvalues, setFormvalues] = useState(initialState);
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+    setFormvalues({ ...formvalues, [e.target.name]: e.target.value });
   };
   const handleSubmit = () => {
-    const { fullName, dueDate, title, description } = formValues;
+    const { fullName, dueDate, title, description } = formvalues;
     if (!fullName || !dueDate || !title || !description) {
       toast.error("Fill all forms");
       return;
@@ -35,11 +35,10 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
     setTasks(newTask);
     localStorage.setItem("items", JSON.stringify(newTask));
     toast.success("Create Successfully");
-    setFormValues(initialState);
+    setFormvalues(initialState);
     closeModal();
     return;
   };
-  console.log(formValues, "hello");
   return (
     <>
       <Popup closeModal={closeModal}>
@@ -52,7 +51,7 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
               type="text"
               name="fullName"
               required
-              defaulValue={formValues.fullName}
+              defaulValue={formvalues.fullName}
             />
           </div>
           <div className={classes.inpuFieldWrap}>
@@ -63,7 +62,7 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
                 onChange={handleChange}
                 type="date"
                 name="dueDate"
-                defaulValue={formValues.dueDate}
+                defaulValue={formvalues.dueDate}
                 required
                 className={classes.inputFieldDue}
               />
@@ -76,7 +75,7 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
               onChange={handleChange}
               type="text"
               name="title"
-              defaulValue={formValues.title}
+              defaulValue={formvalues.title}
               required
             />
           </div>
@@ -89,7 +88,7 @@ const CreateTask = ({ closeModal, tasks, setTasks }) => {
                 onChange={handleChange}
                 type="text"
                 name="description"
-                defaulValue={formValues.description}
+                defaulValue={formvalues.description}
                 required
               />
             </div>

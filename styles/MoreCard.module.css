@@ -4,6 +4,7 @@
   align-items: center;
   gap: 11px;
   height: 40px;
+  cursor: pointer;
 }
 .textArea {
   color: #ffffff;

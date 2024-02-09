@@ -29,7 +29,8 @@ const TodoCard = ({
       setShowCard(false);
     }
     if (action === "Delete") {
-      setDeleteTask(true)
+      setDeleteTask(true);
+      setUpdatedTask(task);
       // setShowCard(false);
     }
     if (action === "Move to Pending") {

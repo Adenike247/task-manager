@@ -13,7 +13,7 @@ import PendingCard from "./PendingCard";
 import DoneCard from "./DoneCard";
 import CreateTask from "./CreateTask";
 import EditTask from "./EditTask";
-import DeleteCard from "./DeleteCard";
+import DeleteTask from "./DeleteTask";
 import MoreCard from "./MoreCard";
 import Image from "next/image";
 import { noTask } from "../assets/Images";
@@ -81,11 +81,12 @@ const Dashboard = () => {
             />
           )}
           {deleteTask && (
-            <DeleteCard
+            <DeleteTask
               closeModal={closeDeleteModal}
-              setDeletTask={setDeleteTask}
+              // setDeletTask={setDeleteTask}
               tasks={tasks}
               setTasks={setTasks}
+              deleteTask={updatedTask}
             />
           )}
           <div className={classes.whiteCard}>
