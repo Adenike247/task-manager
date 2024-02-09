@@ -13,6 +13,7 @@ import PendingCard from "./PendingCard";
 import DoneCard from "./DoneCard";
 import CreateTask from "./CreateTask";
 import EditTask from "./EditTask";
+import DeleteCard from "./DeleteCard";
 import MoreCard from "./MoreCard";
 import Image from "next/image";
 import { noTask } from "../assets/Images";
@@ -22,6 +23,7 @@ const Dashboard = () => {
   const [filter, setFilter] = useState("Todo");
   const [isOpen, setIsOpen] = useState(false);
   const [editTask, setEditTask] = useState(false);
+  const [deleteTask, setDeleteTask] = useState(false);
   const [updatedTask, setUpdatedTask] = useState(null);
   const handleFilter = (filter) => {
     setFilter(filter);
@@ -35,6 +37,9 @@ const Dashboard = () => {
   };
   const closeEditModal = () => {
     setEditTask(false);
+  };
+  const closeDeleteModal = () => {
+    setDeleteTask(false);
   };
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("items")) || null;
@@ -71,6 +76,14 @@ const Dashboard = () => {
             <EditTask
               closeModal={closeEditModal}
               updatedTask={updatedTask}
+              tasks={tasks}
+              setTasks={setTasks}
+            />
+          )}
+          {deleteTask && (
+            <DeleteCard
+              closeModal={closeDeleteModal}
+              setDeletTask={setDeleteTask}
               tasks={tasks}
               setTasks={setTasks}
             />
@@ -126,6 +139,7 @@ const Dashboard = () => {
                     taskId={item.id}
                     task={item}
                     setUpdatedTask={setUpdatedTask}
+                    setDeleteTask={setDeleteTask}
                   />
                 ) : (
                   <></>

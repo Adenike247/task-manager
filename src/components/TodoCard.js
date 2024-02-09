@@ -15,6 +15,7 @@ const TodoCard = ({
   dueRaisedIcon,
   tasks,
   setEditTask,
+  setDeleteTask,
   setTasks,
   taskId,
   task,
@@ -28,10 +29,8 @@ const TodoCard = ({
       setShowCard(false);
     }
     if (action === "Delete") {
-      const newTasks = tasks.filter((task) => task.id !== taskId);
-      setTasks(newTasks);
-      localStorage.setItem("items", JSON.stringify(newTasks));
-      toast.success("Deleted Successfully");
+      setDeleteTask(true)
+      // setShowCard(false);
     }
     if (action === "Move to Pending") {
       const newTasks = tasks.map((task) => {
