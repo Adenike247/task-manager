@@ -14,16 +14,17 @@ const PendingCard = ({
   dueDateIcon,
   dueRaisedIcon,
   tasks,
+  setDeleteTask,
   setTasks,
   taskId,
+  task,
+  setUpdatedTask,
 }) => {
   const [showCard, setShowCard] = useState(false);
   const handleClick = (action) => {
     if (action === "Delete") {
-      const newTasks = tasks.filter((task) => task.id !== taskId);
-      setTasks(newTasks);
-      localStorage.setItem("items", JSON.stringify(newTasks));
-      toast.success("Deleted Successfully");
+      setDeleteTask(true);
+      setUpdatedTask(task);
     }
     if (action === "Mark as done") {
       const newTasks = tasks.map((task) => {

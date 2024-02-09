@@ -31,7 +31,6 @@ const TodoCard = ({
     if (action === "Delete") {
       setDeleteTask(true);
       setUpdatedTask(task);
-      // setShowCard(false);
     }
     if (action === "Move to Pending") {
       const newTasks = tasks.map((task) => {

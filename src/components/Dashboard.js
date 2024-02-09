@@ -83,7 +83,6 @@ const Dashboard = () => {
           {deleteTask && (
             <DeleteTask
               closeModal={closeDeleteModal}
-              // setDeletTask={setDeleteTask}
               tasks={tasks}
               setTasks={setTasks}
               deleteTask={updatedTask}
@@ -200,6 +199,10 @@ const Dashboard = () => {
                     tasks={tasks}
                     setTasks={setTasks}
                     taskId={item.id}
+                    task={item}
+                    setEditTask={setEditTask}
+                    setUpdatedTask={setUpdatedTask}
+                    setDeleteTask={setDeleteTask}
                   />
                 ) : (
                   <></>
@@ -260,7 +263,11 @@ const Dashboard = () => {
                     dueDateText={item.dueDate}
                     tasks={tasks}
                     setTasks={setTasks}
+                    setEditTask={setEditTask}
                     taskId={item.id}
+                    task={item}
+                    setUpdatedTask={setUpdatedTask}
+                    setDeleteTask={setDeleteTask}
                   />
                 ) : (
                   <></>
